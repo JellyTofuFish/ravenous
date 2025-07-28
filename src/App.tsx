@@ -1,10 +1,11 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
+import { BeakerIcon } from "@heroicons/react/24/solid";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <>
@@ -28,8 +29,11 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      <BeakerIcon className="size-12 text-sky-500" />
+
+      <h1 className="text-2xl font-bold underline">Hello world!</h1>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

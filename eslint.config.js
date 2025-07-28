@@ -25,11 +25,7 @@ export default tseslint.config([
       },
     },
   },
-  {
-    files: ["**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
-    plugins: { js },
-    extends: ["js/recommended"],
-  },
+  js.configs.recommended,
   {
     files: ["**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
     languageOptions: {
@@ -39,35 +35,26 @@ export default tseslint.config([
   },
   ...tseslint.configs.recommendedTypeChecked,
   ...tseslint.configs.stylisticTypeChecked,
-  {
-    files: ["**/*.json"],
-    plugins: { json },
-    language: "json/json",
-    extends: ["json/recommended"],
-  },
+  json.configs.recommended,
   {
     files: ["**/*.jsonc"],
-    plugins: { json },
     language: "json/jsonc",
-    extends: ["json/recommended"],
+    ...json.configs.recommended,
   },
   {
     files: ["**/*.json5"],
-    plugins: { json },
     language: "json/json5",
-    extends: ["json/recommended"],
+    ...json.configs.recommended,
   },
   {
     files: ["**/*.md"],
-    plugins: { markdown },
     language: "markdown/gfm",
-    extends: ["markdown/recommended"],
+    ...markdown.configs.recommended,
   },
   {
     files: ["**/*.css"],
-    plugins: { css },
     language: "css/css",
-    extends: ["css/recommended"],
+    ...css.configs.recommended,
   },
   eslintConfigPrettier,
   reactX.configs["recommended-typescript"],

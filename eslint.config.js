@@ -14,28 +14,46 @@ import reactDom from "eslint-plugin-react-dom";
 export default tseslint.config([
   globalIgnores(["dist"]),
   {
-    files: ["**/*.{ts,tsx}"],
+    files: ["src/**/*.{ts,tsx}"],
     languageOptions: {
       ecmaVersion: 2020,
       globals: { ...globals.browser, ...globals.node },
       parserOptions: {
-        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-        projectService: true,
+        project: ["./tsconfig.app.json"],
         tsconfigRootDir: import.meta.dirname,
       },
     },
   },
-  js.configs.recommended,
   {
-    files: ["**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
+    files: ["vite.config.ts"],
     languageOptions: {
-      ecmaVersion: 2020,
       globals: { ...globals.browser, ...globals.node },
+      parserOptions: {
+        project: "./tsconfig.node.json",
+      },
     },
   },
+  {
+    files: ["**/*.{js,ts,jsx,tsx}"],
+    languageOptions: {
+      ecmaVersion: 2020,
+      globals: { ...globals.node, ...globals.browser },
+    },
+  },
+  js.configs.recommended,
   ...tseslint.configs.recommendedTypeChecked,
   ...tseslint.configs.stylisticTypeChecked,
-  json.configs.recommended,
+  {
+    files: ["**/*.{ts,tsx}"],
+    rules: {
+      "@typescript-eslint/consistent-type-definitions": ["error", "type"],
+    },
+  },
+  {
+    files: ["**/*.json"],
+    language: "json/json",
+    ...json.configs.recommended,
+  },
   {
     files: ["**/*.jsonc"],
     language: "json/jsonc",

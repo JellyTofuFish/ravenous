@@ -1,10 +1,10 @@
 import js from "@eslint/js";
 import globals from "globals";
-import tseslint from "typescript-eslint";
 import json from "@eslint/json";
 import markdown from "@eslint/markdown";
 import css from "@eslint/css";
 import eslintConfigPrettier from "eslint-config-prettier/flat";
+import tseslint from "typescript-eslint";
 import { globalIgnores } from "eslint/config";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
@@ -12,18 +12,7 @@ import reactX from "eslint-plugin-react-x";
 import reactDom from "eslint-plugin-react-dom";
 
 export default tseslint.config([
-  globalIgnores(["dist"]),
-  {
-    files: ["src/**/*.{ts,tsx}"],
-    languageOptions: {
-      ecmaVersion: 2020,
-      globals: { ...globals.browser, ...globals.node },
-      parserOptions: {
-        project: ["./tsconfig.app.json"],
-        tsconfigRootDir: import.meta.dirname,
-      },
-    },
-  },
+  globalIgnores(["dist", "**/*.json", "**/*.config.*"]),
   {
     files: ["vite.config.ts"],
     languageOptions: {
@@ -33,19 +22,29 @@ export default tseslint.config([
       },
     },
   },
+  js.configs.recommended,
   {
-    files: ["**/*.{js,ts,jsx,tsx}"],
+    files: ["**/*.{js,cjs,mjs,ts,tsx,jsx}"],
     languageOptions: {
-      ecmaVersion: 2020,
+      ecmaVersion: 2023,
+      sourceType: "module",
       globals: { ...globals.node, ...globals.browser },
     },
   },
-  js.configs.recommended,
-  ...tseslint.configs.recommendedTypeChecked,
-  ...tseslint.configs.stylisticTypeChecked,
   {
     files: ["**/*.{ts,tsx}"],
+    languageOptions: {
+      ecmaVersion: 2023,
+      sourceType: "module",
+      globals: { ...globals.browser, ...globals.node },
+      parserOptions: {
+        project: ["./tsconfig.app.json"],
+        tsconfigRootDir: import.meta.dirname,
+      },
+    },
     rules: {
+      ...tseslint.configs.recommendedTypeChecked.rules,
+      ...tseslint.configs.stylisticTypeChecked.rules,
       "@typescript-eslint/consistent-type-definitions": ["error", "type"],
     },
   },

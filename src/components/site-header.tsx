@@ -1,10 +1,10 @@
-import { SearchForm } from "@/components/search-form";
+import { SearchForm } from '@/components/search-form';
 import {
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbList,
   BreadcrumbPage,
-} from "@/components/ui/breadcrumb";
+} from '@/components/ui/breadcrumb';
 
 export function SiteHeader() {
   return (

@@ -1,81 +1,78 @@
-import js from "@eslint/js";
-import globals from "globals";
-import json from "@eslint/json";
-import markdown from "@eslint/markdown";
-import css from "@eslint/css";
-import eslintConfigPrettier from "eslint-config-prettier/flat";
-import tseslint from "typescript-eslint";
-import { globalIgnores } from "eslint/config";
-import reactHooks from "eslint-plugin-react-hooks";
-import reactRefresh from "eslint-plugin-react-refresh";
-import reactX from "eslint-plugin-react-x";
-import reactDom from "eslint-plugin-react-dom";
+import js from '@eslint/js';
+import globals from 'globals';
+import tseslint from 'typescript-eslint';
+import eslintConfigPrettier from 'eslint-config-prettier/flat';
+import { globalIgnores } from 'eslint/config';
+
+import reactX from 'eslint-plugin-react-x';
+import reactDom from 'eslint-plugin-react-dom';
+import reactHooks from 'eslint-plugin-react-hooks';
+import reactRefresh from 'eslint-plugin-react-refresh';
 
 export default tseslint.config([
-  globalIgnores(["dist", "**/*.json", "**/*.config.*"]),
+  globalIgnores(['dist', 'node_modules', 'package-lock.json', '**/*.config.*', '**/*.json']),
+
+  js.configs.recommended,
+
   {
-    files: ["vite.config.ts"],
+    files: ['**/*.{js,cjs,mjs,ts,tsx,jsx}'],
     languageOptions: {
-      globals: { ...globals.browser, ...globals.node },
+      ecmaVersion: 2023,
+      sourceType: 'module',
+      globals: { ...globals.node, ...globals.browser, ...globals.jest },
       parserOptions: {
-        project: "./tsconfig.node.json",
+        ecmaFeatures: {
+          jsx: true,
+        },
       },
     },
   },
-  js.configs.recommended,
+
   {
-    files: ["**/*.{js,cjs,mjs,ts,tsx,jsx}"],
+    files: ['**/*.{ts,tsx}'],
     languageOptions: {
-      ecmaVersion: 2023,
-      sourceType: "module",
-      globals: { ...globals.node, ...globals.browser },
-    },
-  },
-  {
-    files: ["**/*.{ts,tsx}"],
-    languageOptions: {
-      ecmaVersion: 2023,
-      sourceType: "module",
-      globals: { ...globals.browser, ...globals.node },
+      parser: tseslint.parser,
       parserOptions: {
-        project: ["./tsconfig.app.json"],
+        project: './tsconfig.app.json',
         tsconfigRootDir: import.meta.dirname,
       },
+    },
+    plugins: {
+      '@typescript-eslint': tseslint.plugin,
     },
     rules: {
       ...tseslint.configs.recommendedTypeChecked.rules,
       ...tseslint.configs.stylisticTypeChecked.rules,
-      "@typescript-eslint/consistent-type-definitions": ["error", "type"],
+      '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
     },
   },
+
   {
-    files: ["**/*.json"],
-    language: "json/json",
-    ...json.configs.recommended,
+    files: ['vite.config.ts'],
+    languageOptions: {
+      parserOptions: {
+        project: './tsconfig.node.json',
+        tsconfigRootDir: import.meta.dirname,
+      },
+    },
   },
-  {
-    files: ["**/*.jsonc"],
-    language: "json/jsonc",
-    ...json.configs.recommended,
-  },
-  {
-    files: ["**/*.json5"],
-    language: "json/json5",
-    ...json.configs.recommended,
-  },
-  {
-    files: ["**/*.md"],
-    language: "markdown/gfm",
-    ...markdown.configs.recommended,
-  },
-  {
-    files: ["**/*.css"],
-    language: "css/css",
-    ...css.configs.recommended,
-  },
-  eslintConfigPrettier,
-  reactX.configs["recommended-typescript"],
+
+  reactX.configs['recommended-typescript'],
   reactDom.configs.recommended,
-  reactHooks.configs["recommended-latest"],
+  reactHooks.configs['recommended-latest'],
   reactRefresh.configs.vite,
+
+  {
+    files: ['**/*.{js,ts,jsx,tsx}'],
+    languageOptions: {
+      globals: {
+        React: 'readonly',
+      },
+    },
+    rules: {
+      'react/react-in-jsx-scope': 'off',
+    },
+  },
+
+  eslintConfigPrettier,
 ]);

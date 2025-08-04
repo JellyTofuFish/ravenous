@@ -1,9 +1,11 @@
-import { SiteHeader } from "@/components/site-header";
+import { SiteHeader } from '@/components/site-header';
 
-export default function Page() {
+function Page() {
   return (
-    <div className="[--header-height:calc(--spacing(14))]">
+    <div className="[--header-height:calc(--spacing(14))] font-roboto">
       <SiteHeader />
     </div>
   );
 }
+
+export default Page;

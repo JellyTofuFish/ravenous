@@ -23,17 +23,17 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Lint
+      - name: Validate lint
         run: npm run lint
 
-      - name: Format
+      - name: Validate Format
         run: npm run format
 
-      - name: Run Jest Unit Tests
+      - name: Run Jest unit tests
         run: npm run unit
 
       - name: Build app for E2E
         run: npm run build
 
-      - name: Run Playwright E2E Tests
+      - name: Run Playwright E2E tests
         run: npm run e2e

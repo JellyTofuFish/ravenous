@@ -9,6 +9,8 @@ on:
 jobs:
   test-suite:
     runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.45.2-jammy
 
     steps:
       - uses: actions/checkout@v4
@@ -29,9 +31,6 @@ jobs:
 
       - name: Run Jest Unit Tests
         run: npm run unit
-
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
 
       - name: Run Playwright E2E Tests
         run: npm run e2e

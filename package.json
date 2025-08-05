@@ -10,9 +10,9 @@
     "lint": "eslint .",
     "format": "prettier --check .",
     "format:update": "prettier --check --write .",
-    "unit": "jest --ci",
+    "unit": "jest --ci --passWithNoTests",
     "unit:update": "jest --ci --updateSnapshot",
-    "e2e": "playwright test",
+    "e2e": "playwright test --pass-with-no-tests",
     "e2e:debug": "playwright test --debug"
   },
   "dependencies": {

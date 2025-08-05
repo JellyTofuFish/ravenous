@@ -9,6 +9,24 @@ import reactDom from 'eslint-plugin-react-dom';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
 
+const baseLanguageOptions = (project) => ({
+  languageOptions: {
+    parser: tseslint.parser,
+    parserOptions: {
+      tsconfigRootDir: import.meta.dirname,
+      project: project,
+    },
+  },
+  plugins: {
+    '@typescript-eslint': tseslint.plugin,
+  },
+  rules: {
+    ...tseslint.configs.recommendedTypeChecked.rules,
+    ...tseslint.configs.stylisticTypeChecked.rules,
+    '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
+  },
+});
+
 export default tseslint.config([
   globalIgnores(['dist', 'node_modules', 'package-lock.json', '**/*.config.*', '**/*.json']),
 
@@ -29,22 +47,14 @@ export default tseslint.config([
   },
 
   {
-    files: ['**/*.{ts,tsx}'],
-    languageOptions: {
-      parser: tseslint.parser,
-      parserOptions: {
-        project: './tsconfig.app.json',
-        tsconfigRootDir: import.meta.dirname,
-      },
-    },
-    plugins: {
-      '@typescript-eslint': tseslint.plugin,
-    },
-    rules: {
-      ...tseslint.configs.recommendedTypeChecked.rules,
-      ...tseslint.configs.stylisticTypeChecked.rules,
-      '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
-    },
+    files: ['src/**/*.{ts,tsx}'],
+    ...baseLanguageOptions('./tsconfig.app.json'),
+  },
+
+  {
+    files: ['test/unit/**/*.{ts,tsx}'],
+    ...baseLanguageOptions('./tsconfig.test.json'),
+
   },
 
   {

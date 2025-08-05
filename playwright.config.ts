@@ -35,7 +35,7 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: 'vite preview',
+    command: 'npm run preview',
     url: TEST_SERVER_URL,
     reuseExistingServer: !process.env.CI,
     timeout: 120 * 1000,

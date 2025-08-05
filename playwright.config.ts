@@ -1,6 +1,6 @@
 import { defineConfig, devices } from '@playwright/test';
 
-const TEST_SERVER_URL = 'http://localhost:5173';
+const PREVIEW_SERVER_URL = 'http://localhost:3031';
 
 export default defineConfig({
   testDir: './test/e2e',
@@ -14,7 +14,7 @@ export default defineConfig({
     headless: true,
     viewport: { width: 1280, height: 720 },
     actionTimeout: 0,
-    baseURL: TEST_SERVER_URL,
+    baseURL: PREVIEW_SERVER_URL,
     ignoreHTTPSErrors: true,
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
@@ -36,7 +36,7 @@ export default defineConfig({
   ],
   webServer: {
     command: 'npm run preview',
-    url: TEST_SERVER_URL,
+    url: PREVIEW_SERVER_URL,
     reuseExistingServer: !process.env.CI,
     timeout: 120 * 1000,
   },

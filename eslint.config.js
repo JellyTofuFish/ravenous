@@ -2,6 +2,8 @@ import js from '@eslint/js';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
 import eslintConfigPrettier from 'eslint-config-prettier/flat';
+import eslintPrettierPlugin from 'eslint-plugin-prettier';
+import eslintJsoncPlugin from 'eslint-plugin-jsonc';
 import { globalIgnores } from 'eslint/config';
 
 import reactX from 'eslint-plugin-react-x';
@@ -19,42 +21,49 @@ const baseLanguageOptions = (project) => ({
   },
   plugins: {
     '@typescript-eslint': tseslint.plugin,
+    prettier: eslintPrettierPlugin,
   },
   rules: {
     ...tseslint.configs.recommendedTypeChecked.rules,
     ...tseslint.configs.stylisticTypeChecked.rules,
     '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
+    'prettier/prettier': 'warn',
   },
 });
 
 export default tseslint.config([
-  globalIgnores(['dist', 'node_modules', 'package-lock.json', '**/*.config.*', '**/*.json']),
-
-  js.configs.recommended,
+  globalIgnores(['dist', 'node_modules', 'package.json', 'package-lock.json']),
 
   {
     files: ['**/*.{js,cjs,mjs,ts,tsx,jsx}'],
+    ...js.configs.recommended,
     languageOptions: {
       ecmaVersion: 2023,
       sourceType: 'module',
-      globals: { ...globals.node, ...globals.browser, ...globals.jest },
+      globals: { ...globals.node, ...globals.browser, ...globals.jest, React: 'readonly' },
       parserOptions: {
         ecmaFeatures: {
           jsx: true,
         },
       },
     },
+    plugins: {
+      prettier: eslintPrettierPlugin,
+    },
+    rules: {
+      'react/react-in-jsx-scope': 'off',
+      'prettier/prettier': 'warn',
+    },
   },
 
   {
-    files: ['src/**/*.{ts,tsx}'],
+    files: ['src/**/*.{ts,tsx,js,jsx}'],
     ...baseLanguageOptions('./tsconfig.app.json'),
   },
 
   {
-    files: ['test/unit/**/*.{ts,tsx}'],
+    files: ['test/unit/**/*.{ts,tsx,js,jsx}'],
     ...baseLanguageOptions('./tsconfig.test.json'),
-
   },
 
   {
@@ -73,14 +82,22 @@ export default tseslint.config([
   reactRefresh.configs.vite,
 
   {
-    files: ['**/*.{js,ts,jsx,tsx}'],
+    files: ['**/*.json', '**/*.jsonc', '**/*.json5'],
+    plugins: {
+      jsonc: eslintJsoncPlugin,
+      prettier: eslintPrettierPlugin,
+    },
     languageOptions: {
-      globals: {
-        React: 'readonly',
+      parser: eslintJsoncPlugin,
+      parserOptions: {
+        jsonSyntax: 'JSON5',
       },
     },
     rules: {
-      'react/react-in-jsx-scope': 'off',
+      'prettier/prettier': 'warn',
+      'jsonc/no-dupe-keys': 'error',
+      'jsonc/sort-keys': 'error',
+      'jsonc/array-bracket-spacing': ['warn', 'never'],
     },
   },
 

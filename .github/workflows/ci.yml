@@ -26,14 +26,14 @@ jobs:
       - name: Validate lint
         run: npm run lint
 
-      - name: Validate Format
+      - name: Validate format
         run: npm run format
 
       - name: Run Jest unit tests
         run: npm run unit
 
-      - name: Build app for E2E
+      - name: Build app for e2e tests
         run: npm run build
 
-      - name: Run Playwright E2E tests
+      - name: Run Playwright e2e tests
         run: npm run e2e

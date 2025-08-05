@@ -4,3 +4,4 @@ coverage
 .prettierrc
 .github*
 README.md
+test-results/*

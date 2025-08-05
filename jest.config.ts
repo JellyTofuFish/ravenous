@@ -14,5 +14,5 @@ export default {
     '^@/(.*)$': '<rootDir>/src/$1',
     '^@test/(.*)$': '<rootDir>/test/$1',
   },
-  testMatch: ['<rootDir>/test/unit/**/*.(spec|test).[jt]s?(x)'],
+  testMatch: ['<rootDir>/test/unit/**/*.spec.[jt]s?(x)', '<rootDir>/test/unit/**/*.test.[jt]s?(x)'],
 };

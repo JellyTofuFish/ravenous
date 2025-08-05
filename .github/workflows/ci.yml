@@ -1,12 +1,16 @@
-name: CI - Lint, Format, Jest, Playwright
+name: CI - Tests
 
 on:
+  push:
+    branches: [main, develop]
   pull_request:
-    branches: [main]
+    branches: [main, develop]
 
 jobs:
   test-suite:
     runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.45.2-jammy
 
     steps:
       - uses: actions/checkout@v4
@@ -19,17 +23,17 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Lint
+      - name: Validate lint
         run: npm run lint
 
-      - name: Format
+      - name: Validate format
         run: npm run format
 
-      - name: Run Jest Unit Tests
+      - name: Run Jest unit tests
         run: npm run unit
 
-      # - name: Install Playwright Browsers
-      #   run: npx playwright install --with-deps
+      - name: Build app for e2e tests
+        run: npm run build
 
-      # - name: Run Playwright E2E Tests
-      #   run: npm run e2e
+      - name: Run Playwright e2e tests
+        run: npm run e2e

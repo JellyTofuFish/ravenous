@@ -5,6 +5,7 @@
     "module": "CommonJS",
     "moduleResolution": "node",
     "paths": {
+      "@/*": ["./src/*"],
       "@test/*": ["./test/*"]
     },
     "types": ["jest", "@testing-library/jest-dom"],

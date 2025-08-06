@@ -1,0 +1,164 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`StarRating - Snapshot renders correctly with a rating of 2.5 1`] = `
+<DocumentFragment>
+  <div
+    class="relative"
+    data-testid="star-rating"
+  >
+    <div
+      class="flex flex-row gap-2"
+    >
+      <svg
+        class="fill-gray-300 stroke-gray-400"
+        data-testid="star"
+        stroke-width="1"
+      />
+      <svg
+        class="fill-gray-300 stroke-gray-400"
+        data-testid="star"
+        stroke-width="1"
+      />
+      <svg
+        class="fill-gray-300 stroke-gray-400"
+        data-testid="star"
+        stroke-width="1"
+      />
+      <svg
+        class="fill-gray-300 stroke-gray-400"
+        data-testid="star"
+        stroke-width="1"
+      />
+      <svg
+        class="fill-gray-300 stroke-gray-400"
+        data-testid="star"
+        stroke-width="1"
+      />
+    </div>
+    <div
+      class="absolute top-0 flex flex-row gap-2"
+    >
+      <svg
+        class="fill-amber-500 stroke-amber-600"
+        data-testid="star"
+        stroke-width="1"
+      />
+      <svg
+        class="fill-amber-500 stroke-amber-600"
+        data-testid="star"
+        stroke-width="1"
+      />
+      <svg
+        class="fill-amber-500 stroke-amber-600"
+        data-testid="star-half"
+        stroke-width="1"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`StarRating - Snapshot renders correctly with custom className 1`] = `
+<DocumentFragment>
+  <div
+    class="relative my-custom-class"
+    data-testid="star-rating"
+  >
+    <div
+      class="flex flex-row gap-2"
+    >
+      <svg
+        class="fill-gray-300 stroke-gray-400"
+        data-testid="star"
+        stroke-width="1"
+      />
+      <svg
+        class="fill-gray-300 stroke-gray-400"
+        data-testid="star"
+        stroke-width="1"
+      />
+      <svg
+        class="fill-gray-300 stroke-gray-400"
+        data-testid="star"
+        stroke-width="1"
+      />
+      <svg
+        class="fill-gray-300 stroke-gray-400"
+        data-testid="star"
+        stroke-width="1"
+      />
+      <svg
+        class="fill-gray-300 stroke-gray-400"
+        data-testid="star"
+        stroke-width="1"
+      />
+    </div>
+    <div
+      class="absolute top-0 flex flex-row gap-2"
+    >
+      <svg
+        class="fill-amber-500 stroke-amber-600"
+        data-testid="star"
+        stroke-width="1"
+      />
+      <svg
+        class="fill-amber-500 stroke-amber-600"
+        data-testid="star"
+        stroke-width="1"
+      />
+      <svg
+        class="fill-amber-500 stroke-amber-600"
+        data-testid="star"
+        stroke-width="1"
+      />
+      <svg
+        class="fill-amber-500 stroke-amber-600"
+        data-testid="star"
+        stroke-width="1"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`StarRating - Snapshot renders correctly with default props 1`] = `
+<DocumentFragment>
+  <div
+    class="relative"
+    data-testid="star-rating"
+  >
+    <div
+      class="flex flex-row gap-2"
+    >
+      <svg
+        class="fill-gray-300 stroke-gray-400"
+        data-testid="star"
+        stroke-width="1"
+      />
+      <svg
+        class="fill-gray-300 stroke-gray-400"
+        data-testid="star"
+        stroke-width="1"
+      />
+      <svg
+        class="fill-gray-300 stroke-gray-400"
+        data-testid="star"
+        stroke-width="1"
+      />
+      <svg
+        class="fill-gray-300 stroke-gray-400"
+        data-testid="star"
+        stroke-width="1"
+      />
+      <svg
+        class="fill-gray-300 stroke-gray-400"
+        data-testid="star"
+        stroke-width="1"
+      />
+    </div>
+    <div
+      class="absolute top-0 flex flex-row gap-2"
+    />
+  </div>
+</DocumentFragment>
+`;

@@ -10,27 +10,27 @@ exports[`StarRating - Snapshot renders correctly with a rating of 2.5 1`] = `
       class="flex flex-row gap-2"
     >
       <svg
-        class="fill-gray-300 stroke-gray-400"
+        class="fill-gray-100 stroke-gray-500"
         data-testid="star"
         stroke-width="1"
       />
       <svg
-        class="fill-gray-300 stroke-gray-400"
+        class="fill-gray-100 stroke-gray-500"
         data-testid="star"
         stroke-width="1"
       />
       <svg
-        class="fill-gray-300 stroke-gray-400"
+        class="fill-gray-100 stroke-gray-500"
         data-testid="star"
         stroke-width="1"
       />
       <svg
-        class="fill-gray-300 stroke-gray-400"
+        class="fill-gray-100 stroke-gray-500"
         data-testid="star"
         stroke-width="1"
       />
       <svg
-        class="fill-gray-300 stroke-gray-400"
+        class="fill-gray-100 stroke-gray-500"
         data-testid="star"
         stroke-width="1"
       />
@@ -68,27 +68,27 @@ exports[`StarRating - Snapshot renders correctly with custom className 1`] = `
       class="flex flex-row gap-2"
     >
       <svg
-        class="fill-gray-300 stroke-gray-400"
+        class="fill-gray-100 stroke-gray-500"
         data-testid="star"
         stroke-width="1"
       />
       <svg
-        class="fill-gray-300 stroke-gray-400"
+        class="fill-gray-100 stroke-gray-500"
         data-testid="star"
         stroke-width="1"
       />
       <svg
-        class="fill-gray-300 stroke-gray-400"
+        class="fill-gray-100 stroke-gray-500"
         data-testid="star"
         stroke-width="1"
       />
       <svg
-        class="fill-gray-300 stroke-gray-400"
+        class="fill-gray-100 stroke-gray-500"
         data-testid="star"
         stroke-width="1"
       />
       <svg
-        class="fill-gray-300 stroke-gray-400"
+        class="fill-gray-100 stroke-gray-500"
         data-testid="star"
         stroke-width="1"
       />
@@ -131,27 +131,27 @@ exports[`StarRating - Snapshot renders correctly with default props 1`] = `
       class="flex flex-row gap-2"
     >
       <svg
-        class="fill-gray-300 stroke-gray-400"
+        class="fill-gray-100 stroke-gray-500"
         data-testid="star"
         stroke-width="1"
       />
       <svg
-        class="fill-gray-300 stroke-gray-400"
+        class="fill-gray-100 stroke-gray-500"
         data-testid="star"
         stroke-width="1"
       />
       <svg
-        class="fill-gray-300 stroke-gray-400"
+        class="fill-gray-100 stroke-gray-500"
         data-testid="star"
         stroke-width="1"
       />
       <svg
-        class="fill-gray-300 stroke-gray-400"
+        class="fill-gray-100 stroke-gray-500"
         data-testid="star"
         stroke-width="1"
       />
       <svg
-        class="fill-gray-300 stroke-gray-400"
+        class="fill-gray-100 stroke-gray-500"
         data-testid="star"
         stroke-width="1"
       />

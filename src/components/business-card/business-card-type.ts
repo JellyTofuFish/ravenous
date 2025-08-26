@@ -1,36 +1,36 @@
 export type BusinessCardType = {
+  id: string;
   image: string;
   name: string;
   address: string;
+  address2: string | null;
   city: string;
-  state: string | undefined;
+  country: string;
   zip: string;
-  categoty: string | undefined;
+  category: string | null;
   rating: number;
   reviewCount: number;
+  url: string;
+  menuUrl: string | null;
+  phone: string | null;
+  price: string;
 };
 
-export const DefaultBusiness: BusinessCardType[] = [
+export const testBusiness = [
   {
-    image: 'https://picsum.photos/200',
-    name: "Big Mama's Pizzeria",
-    address: 'Espoonlahdenkatu 1, Finland',
-    city: 'Espoo',
-    state: undefined,
-    zip: '02320',
-    categoty: 'Pizza restaurant',
-    rating: 3,
-    reviewCount: 20,
-  },
-  {
-    image: 'https://picsum.photos/200',
-    name: "Big Mama's Pizzeria2",
-    address: 'Espoonlahdenkatu 1',
-    city: 'Espoo',
-    state: undefined,
-    zip: '02320',
-    categoty: 'Pizza restaurant',
-    rating: 2.7,
-    reviewCount: 30,
+    id: '1',
+    image: '',
+    name: 'Test Business 1',
+    address: '123 Test St',
+    address2: 'Suite 100',
+    city: 'Testville',
+    country: 'USA',
+    zip: '12345',
+    category: 'Testing',
+    rating: 4.5,
+    reviewCount: 10,
+    phone: '555-1234',
+    url: 'https://example.com',
+    price: '$$',
   },
 ];

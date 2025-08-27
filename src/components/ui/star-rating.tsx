@@ -18,7 +18,7 @@ export default function StarRating({
 
   for (let i = 0; i < 5; i++) {
     emptyStars.push(
-      <Star key={`empty-star-${i}`} className="fill-gray-100 stroke-gray-500" strokeWidth={1} />,
+      <Star key={`empty-star-${i}`} className="fill-transparent stroke-gray-500" strokeWidth={1} />,
     );
   }
 

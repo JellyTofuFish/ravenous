@@ -1,36 +1,17 @@
 export type BusinessCardType = {
+  id: string;
   image: string;
   name: string;
   address: string;
+  address2: string | null;
   city: string;
-  state: string | undefined;
+  country: string;
   zip: string;
-  categoty: string | undefined;
+  category: string | null;
   rating: number;
   reviewCount: number;
+  url: string;
+  menuUrl: string | null;
+  phone: string | null;
+  price: string;
 };
-
-export const DefaultBusiness: BusinessCardType[] = [
-  {
-    image: 'https://picsum.photos/200',
-    name: "Big Mama's Pizzeria",
-    address: 'Espoonlahdenkatu 1, Finland',
-    city: 'Espoo',
-    state: undefined,
-    zip: '02320',
-    categoty: 'Pizza restaurant',
-    rating: 3,
-    reviewCount: 20,
-  },
-  {
-    image: 'https://picsum.photos/200',
-    name: "Big Mama's Pizzeria2",
-    address: 'Espoonlahdenkatu 1',
-    city: 'Espoo',
-    state: undefined,
-    zip: '02320',
-    categoty: 'Pizza restaurant',
-    rating: 2.7,
-    reviewCount: 30,
-  },
-];

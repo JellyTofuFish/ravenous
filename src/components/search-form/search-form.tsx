@@ -1,4 +1,4 @@
-import { YelpSortFilter, type YelpBusiness } from '@/api/yelp-type';
+import { YelpSortFilter } from '@/api/yelp-type';
 import { Button } from '@/components/ui/button';
 import {
   Form,
@@ -45,7 +45,7 @@ function SearchForm({
             <button
               key={option}
               type="button"
-              className={`px-4 py-2 border-2 rounded font-semibold transition-colors duration-150 ${form.watch('filter') === option ? 'bg-rose-500 text-white border-rose-500 hover:bg-rose-600' : 'bg-white text-rose-500 border-rose-500 hover:bg-rose-100 hover:border-rose-600 hover:text-rose-600'}`}
+              className={`px-4 py-2 border-2 rounded font-semibold transition-colors duration-150 ${form.watch('filter') === option ? 'bg-rose-500 text-white border-rose-500 hover:border-rose-700 hover:bg-rose-700' : 'bg-white text-rose-500 border-rose-500 hover:bg-rose-100 hover:border-rose-700 hover:text-rose-700'}`}
               onClick={() => {
                 form.setValue('filter', option);
               }}
